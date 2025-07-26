@@ -1,14 +1,14 @@
 package com.backend.domain.place.controller;
 
 import com.backend.domain.place.dto.request.PlaceRecommendRequestDto;
+import com.backend.domain.place.dto.request.PlaceVisitRequestDto;
 import com.backend.domain.place.dto.response.PlaceRecommendResponseDto;
+import com.backend.domain.place.dto.response.PlaceVisitResponseDto;
 import com.backend.domain.place.service.PlaceService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/place")
@@ -17,11 +17,19 @@ public class PlaceController {
 
     private final PlaceService placeService;
 
-    // 현재 위치 기반 관광지 추천 API
+    @Operation(description = "현재 위치 기반 관광지 추천 API")
     @GetMapping("/recommendation")
     public ResponseEntity<PlaceRecommendResponseDto> getPlace(@RequestBody PlaceRecommendRequestDto requestDto) {
 
         PlaceRecommendResponseDto responseDto = placeService.getPlace(requestDto);
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @Operation(description = "방문 완료 API")
+    @PostMapping("/visit")
+    public ResponseEntity<PlaceVisitResponseDto> visitPlace(@RequestBody PlaceVisitRequestDto requestDto) {
+
+        PlaceVisitResponseDto responseDto = placeService.visitPlace(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 }
