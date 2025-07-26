@@ -21,8 +21,9 @@ public class CookieProvider {
     public ResponseCookie generateAccessTokenCookie(String accessToken) {
         return ResponseCookie.from("access", accessToken)
                 .maxAge(jwtProperties.accessTokenExpSeconds())
+                .domain("galraemalrae.duckdns.org")
                 .path("/")
-                .secure(false) // prod, test: true, local: false
+                .secure(true) // prod, test: true, local: false
                 .httpOnly(true)
                 .sameSite("None") // prod, test: None, local: Lax
                 .build();
@@ -31,8 +32,9 @@ public class CookieProvider {
     public ResponseCookie generateRefreshTokenCookie(String refreshToken) {
         return ResponseCookie.from("refresh", refreshToken)
                 .maxAge(jwtProperties.refreshTokenExpSeconds())
+                .domain("galraemalrae.duckdns.org")
                 .path("/auth/refresh")
-                .secure(false) // prod, test: true, local: false
+                .secure(true) // prod, test: true, local: false
                 .httpOnly(true)
                 .sameSite("None") // prod, test: None, local: Lax
                 .build();
@@ -41,8 +43,9 @@ public class CookieProvider {
     public ResponseCookie generateExpiredCookie(Cookie cookie) {
         return ResponseCookie.from(cookie.getName(), "")
                 .maxAge(0)
+                .domain("galraemalrae.duckdns.org")
                 .path(cookie.getPath())
-                .secure(false) // prod: true, local: false
+                .secure(true) // prod: true, local: false
                 .httpOnly(true)
                 .sameSite("None") // prod: None, local: Lax
                 .build();

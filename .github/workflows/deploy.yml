@@ -57,7 +57,7 @@ jobs:
             cd /home/ec2-user/hajithon
             
             sudo touch .env
-            echo "${{ secrets.ENV }}" | sudo tee .env > /home/ec2-user/hajithon
+            echo "${{ secrets.ENV }}" | sudo tee /home/ec2-user/hajithon/.env
             
             sudo chmod 666 /var/run/docker.sock
             sudo docker rm -f $(docker ps -qa)
