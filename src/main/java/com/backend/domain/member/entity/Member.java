@@ -3,9 +3,9 @@ package com.backend.domain.member.entity;
 import com.backend.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Builder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 @Entity
@@ -27,6 +27,12 @@ public class Member extends BaseEntity {
 
     @Column(name = "pic_url")
     private String picUrl;
+
+    private Long recentPlaceId;
+
+    public void updatePlaceId(Long id) {
+        recentPlaceId = id;
+    }
 
     @Builder
     public Member(String oauthId, String username, String description, String picUrl) {

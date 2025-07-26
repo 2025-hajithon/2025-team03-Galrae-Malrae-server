@@ -5,6 +5,7 @@ import com.backend.domain.place.entity.Place;
 import com.backend.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,4 +27,11 @@ public class Route extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @Builder
+    public Route(String name, Member member) {
+        this.name = name;
+        this.member = member;
+    }
+
 }
