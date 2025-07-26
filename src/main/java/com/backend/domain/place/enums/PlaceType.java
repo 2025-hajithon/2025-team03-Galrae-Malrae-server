@@ -5,14 +5,16 @@ import lombok.Getter;
 @Getter
 public enum PlaceType {
 
-    TOURIST("12"),
-    CULTURAL("14"),
-    SHOPPING("38"),
-    RESTAURANT("39");
+    TOURIST("12", "관광지"),
+    CULTURAL("14", "문화시설"),
+    SHOPPING("38", "쇼핑"),
+    RESTAURANT("39", "음식점");
 
     private final String description;
+    private final String koreanType;
 
-    PlaceType(String description) {
+    PlaceType(String description, String koreanType) {
         this.description = description;
+        this.koreanType = koreanType;
     }
 }
