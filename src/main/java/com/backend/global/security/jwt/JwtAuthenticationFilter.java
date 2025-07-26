@@ -60,7 +60,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String memberRole = "ROLE_" + claims.get("memberRole", String.class);
         String adminRole = "ROLE_" + claims.get("adminRole", String.class);
 
-        UserDetails userDetails = new UserPrincipal(memberId, handle, memberRole, adminRole);
+        UserDetails userDetails = new UserPrincipal(memberId);
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 }
