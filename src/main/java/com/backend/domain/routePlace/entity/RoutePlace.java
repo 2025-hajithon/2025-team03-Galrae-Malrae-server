@@ -15,7 +15,7 @@ public class RoutePlace extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "route_id")
+    @Column(name = "route_place_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
