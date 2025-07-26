@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: "security"
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_OAUTH2_CLIENT_ID:default}
+            client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET:default}
+            scope:
+              - email
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY:}
+  access-token-exp_seconds: ${JWT_ACCESS_TOKEN_EXP_TIME:3600}
+  refresh-token-exp-seconds: ${JWT_REFRESH_TOKEN_EXP_TIME:604800}
