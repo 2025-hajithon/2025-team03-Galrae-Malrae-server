@@ -1,8 +1,6 @@
 package com.backend.domain.route.dto.response;
 
-import java.util.List;
-
-public record TodayRouteResponse(
+public record RoutePreviewResponse(
         String name,
         String image
 ) {
