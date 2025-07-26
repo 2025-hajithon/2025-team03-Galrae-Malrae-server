@@ -140,6 +140,7 @@ public class PlaceService {
 
             // 가장 최근 추천지 member에 저장
             member.updatePlaceId(place.getId());
+            member.updateCnt(requestDto.placeType());
 
             return new PlaceRecommendResponseDto(
                     placeName,
