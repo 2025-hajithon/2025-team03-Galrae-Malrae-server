@@ -1,7 +1,7 @@
 package com.backend.global.security.jwt;
 
 import com.backend.domain.member.entity.Member;
-import com.backend.global.security.properties.JwtProperties;
+import com.backend.global.properties.JwtProperties;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

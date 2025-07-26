@@ -1,6 +1,6 @@
 package com.backend.global.security.cookie;
 
-import com.backend.global.security.properties.JwtProperties;
+import com.backend.global.properties.JwtProperties;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

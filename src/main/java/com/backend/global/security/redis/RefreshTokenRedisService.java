@@ -1,7 +1,7 @@
 package com.backend.global.security.redis;
 
 import com.backend.domain.member.entity.Member;
-import com.backend.global.security.properties.JwtProperties;
+import com.backend.global.properties.JwtProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
