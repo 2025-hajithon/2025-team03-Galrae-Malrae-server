@@ -17,6 +17,7 @@ import com.backend.domain.route.entity.Route;
 import com.backend.domain.route.repository.RouteRepository;
 import com.backend.domain.routePlace.entity.RoutePlace;
 import com.backend.domain.routePlace.repository.RoutePlaceRepository;
+import com.backend.global.gemini.GeminiService;
 import com.backend.global.util.MemberUtil;
 import com.backend.global.util.FormatUtil;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -43,6 +44,8 @@ public class PlaceService {
 
     private final MemberUtil memberUtil;
     private final FormatUtil formatUtil;
+
+    private final GeminiService geminiService;
 
     @Transactional
     public PlaceVisitResponseDto visitPlace(PlaceVisitRequestDto requestDto) {
@@ -135,6 +138,17 @@ public class PlaceService {
                                     .address(address)
                                     .mapX(mapX)
                                     .mapY(mapY)
+                                    .description(geminiService
+                                            .getContentofPrompt(
+                                                    "대한민국의 관광지에서 "
+                                                    + requestDto.placeType().getKoreanType()
+                                                    + " 카테고리에 속하는 "
+                                                    + placeName
+                                                    + " 에 대하여, "
+                                                    + "관광 설명으로 넣을 수 있도록, "
+                                                    + "문장형으로 친근하게 짧고 굵게 설명문을 제시해 줘. "
+                                                    + "너의 대답은 제외해."
+                                            ))
                                     .build()
                     ));
 
@@ -146,7 +160,7 @@ public class PlaceService {
                     placeName,
                     address,
                     imageUrl,
-                    "" // [TODO] description 처리 필요 시 수정
+                    place.getDescription()
             );
 
         } catch (Exception e) {
