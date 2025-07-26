@@ -1,5 +1,6 @@
 package com.backend.domain.auth.controller;
 
+import com.backend.domain.auth.dto.request.SignupRequest;
 import com.backend.domain.auth.service.AuthService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+
+    @PostMapping("/signup")
+    public ResponseEntity<Void> signup(@RequestBody SignupRequest request) {
+        authService.signup(request);
+        return ResponseEntity.ok().build();
+    }
 
     @PostMapping("/refresh")
     public ResponseEntity<Void> refreshJwtAndRotate(

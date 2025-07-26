@@ -1,16 +1,21 @@
 package com.backend.domain.auth.service;
 
+import com.backend.domain.auth.dto.request.SignupRequest;
 import com.backend.domain.member.entity.Member;
 import com.backend.domain.member.repository.MemberRepository;
 import com.backend.global.security.cookie.CookieProvider;
 import com.backend.global.security.jwt.JwtProvider;
 import com.backend.global.security.jwt.JwtService;
+import com.backend.global.util.MemberUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +24,15 @@ public class AuthService {
     private final JwtService jwtService;
     private final CookieProvider cookieProvider;
     private final MemberRepository memberRepository;
+    private final MemberUtil memberUtil;
+
+    @Transactional
+    public void signup(SignupRequest request) {
+        Long memberId = memberUtil.getCurrentMemberId();
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new RuntimeException("Member not found"));
+        member.updateUsername(request.username());
+    }
 
     public void refreshJwtAndRotate(Cookie refreshTokenCookie, HttpServletResponse response) {
         // RT 만료되었는지 판단하기, 만료 또는 변조시 Exception

@@ -66,7 +66,7 @@ public class CustomOAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHa
         CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
         boolean needSignup = oAuth2User.getMember().getUsername() == null;
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString("http://localhost:3000/oauth/callback")
+        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString("https://2025-team03-galrae-malrae-web.vercel.app/oauth/callback")
                 .queryParam("needSignup", needSignup);
 
         return builder.build().toUriString();
