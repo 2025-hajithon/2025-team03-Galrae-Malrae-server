@@ -18,6 +18,7 @@ import com.backend.domain.route.repository.RouteRepository;
 import com.backend.domain.routePlace.entity.RoutePlace;
 import com.backend.domain.routePlace.repository.RoutePlaceRepository;
 import com.backend.global.security.util.MemberUtil;
+import com.backend.global.util.FormatUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,7 @@ public class PlaceService {
     private final RoutePlaceRepository routePlaceRepository;
 
     private final MemberUtil memberUtil;
+    private final FormatUtil formatUtil;
 
     @Transactional
     public PlaceVisitResponseDto visitPlace(PlaceVisitRequestDto requestDto) {
@@ -59,8 +61,8 @@ public class PlaceService {
         saveRoutePlaceMapping(route, place);
 
         LocalDateTime now = LocalDateTime.now();
-        String formattedDate = formatDate(now);
-        String formattedTime = formatTime(now);
+        String formattedDate = formatUtil.formatDate(now);
+        String formattedTime = formatUtil.formatTime(now);
 
         return new PlaceVisitResponseDto(place.getName(), formattedDate, formattedTime, place.getImageUrl());
     }
@@ -83,14 +85,6 @@ public class PlaceService {
                 .place(place)
                 .build();
         routePlaceRepository.save(routePlace);
-    }
-
-    private String formatDate(LocalDateTime dateTime) {
-        return dateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-    }
-
-    private String formatTime(LocalDateTime dateTime) {
-        return dateTime.format(DateTimeFormatter.ofPattern("HH:mm"));
     }
 
     private boolean isWithinRange(String targetX, String targetY, String currentX, String currentY) {
