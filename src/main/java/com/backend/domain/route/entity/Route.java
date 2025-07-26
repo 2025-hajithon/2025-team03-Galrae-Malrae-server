@@ -15,6 +15,7 @@ public class Route extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "route_id")
     private Long id;
 
     private String name;
@@ -23,8 +24,10 @@ public class Route extends BaseEntity {
     private String picUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "place_id")
     private Place place;
 }
