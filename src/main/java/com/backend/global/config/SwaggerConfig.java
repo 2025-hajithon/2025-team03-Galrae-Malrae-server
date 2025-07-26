@@ -21,7 +21,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .components(new Components())
                 .info(apiInfo())
-                .servers(List.of(new Server().url(serverUri).description("API 주소")));
+                .servers(List.of(new Server().url("http://galraemalrae.duckdns.org").description("API 주소")));
     }
 
     private Info apiInfo() {

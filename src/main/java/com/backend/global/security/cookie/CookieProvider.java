@@ -21,6 +21,7 @@ public class CookieProvider {
     public ResponseCookie generateAccessTokenCookie(String accessToken) {
         return ResponseCookie.from("access", accessToken)
                 .maxAge(jwtProperties.accessTokenExpSeconds())
+                .domain("http://galraemalrae.duckdns.org")
                 .path("/")
                 .secure(false) // prod, test: true, local: false
                 .httpOnly(true)
@@ -31,6 +32,7 @@ public class CookieProvider {
     public ResponseCookie generateRefreshTokenCookie(String refreshToken) {
         return ResponseCookie.from("refresh", refreshToken)
                 .maxAge(jwtProperties.refreshTokenExpSeconds())
+                .domain("http://galraemalrae.duckdns.org")
                 .path("/auth/refresh")
                 .secure(false) // prod, test: true, local: false
                 .httpOnly(true)
@@ -41,6 +43,7 @@ public class CookieProvider {
     public ResponseCookie generateExpiredCookie(Cookie cookie) {
         return ResponseCookie.from(cookie.getName(), "")
                 .maxAge(0)
+                .domain("http://galraemalrae.duckdns.org")
                 .path(cookie.getPath())
                 .secure(false) // prod: true, local: false
                 .httpOnly(true)
