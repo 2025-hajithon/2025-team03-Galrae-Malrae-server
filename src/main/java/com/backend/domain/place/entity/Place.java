@@ -29,15 +29,21 @@ public class Place extends BaseEntity {
 
     private String address;
 
+    private String mapX;
+
+    private String mapY;
+
     @Column(name = "visit_date")
     private LocalDateTime visitDate;
 
     @Builder
-    public Place(String name, PlaceType placeType, String imageUrl, String address) {
+    public Place(String name, PlaceType placeType, String imageUrl, String address, String mapX, String mapY) {
 
         this.name = name;
         this.placeType = placeType;
         this.imageUrl = imageUrl;
         this.address = address;
+        this.mapX = mapX;
+        this.mapY = mapY;
     }
 }
