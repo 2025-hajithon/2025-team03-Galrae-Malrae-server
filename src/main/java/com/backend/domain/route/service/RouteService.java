@@ -4,6 +4,7 @@ import com.backend.domain.member.entity.Member;
 import com.backend.domain.member.repository.MemberRepository;
 import com.backend.domain.place.dto.response.PlaceVisitResponseDto;
 import com.backend.domain.route.dto.response.RouteAllResponseDto;
+import com.backend.domain.route.dto.response.RouteDetailResponseDto;
 import com.backend.domain.route.dto.response.RoutePreviewResponse;
 import com.backend.domain.route.entity.Route;
 import com.backend.domain.route.repository.RouteRepository;
@@ -73,15 +74,19 @@ public class RouteService {
         for (Route route : routes) {
 
             List<RoutePlace> routePlaces = routePlaceRepository.findByRouteOrderByCreatedAtAsc(route);
-            List<RoutePreviewResponse> responses = new ArrayList<>();
+            List<RouteDetailResponseDto> responses = new ArrayList<>();
 
             for(RoutePlace routePlace : routePlaces) {
 
-                RoutePreviewResponse routePreviewResponse = new RoutePreviewResponse(
+                String formattedTime = formatUtil.formatTime(routePlace.getCreatedAt());
+
+                RouteDetailResponseDto responseDto = new RouteDetailResponseDto(
+                        routePlace.getPlace().getImageUrl(),
                         routePlace.getPlace().getName(),
-                        routePlace.getPlace().getImageUrl()
+                        routePlace.getPlace().getDescription(),
+                        formattedTime
                 );
-                responses.add(routePreviewResponse);
+                responses.add(responseDto);
             }
 
             RouteAllResponseDto responseDto = new RouteAllResponseDto(

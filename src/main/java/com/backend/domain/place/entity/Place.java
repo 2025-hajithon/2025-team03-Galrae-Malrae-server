@@ -33,11 +33,13 @@ public class Place extends BaseEntity {
 
     private String mapY;
 
+    private String description;
+
     @Column(name = "visit_date")
     private LocalDateTime visitDate;
 
     @Builder
-    public Place(String name, PlaceType placeType, String imageUrl, String address, String mapX, String mapY) {
+    public Place(String name, PlaceType placeType, String imageUrl, String address, String mapX, String mapY, String description) {
 
         this.name = name;
         this.placeType = placeType;
@@ -45,5 +47,6 @@ public class Place extends BaseEntity {
         this.address = address;
         this.mapX = mapX;
         this.mapY = mapY;
+        this.description = description;
     }
 }
