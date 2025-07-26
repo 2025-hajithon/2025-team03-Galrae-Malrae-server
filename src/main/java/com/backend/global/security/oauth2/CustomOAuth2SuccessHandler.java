@@ -33,18 +33,30 @@ public class CustomOAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHa
         // AT, RT 생성
         String accessToken = jwtService.createAccessToken(oAuth2User.getMember());
         String refreshToken = jwtService.createRefreshToken(oAuth2User.getMember());
+        System.out.println("===============================================");
+        System.out.println("AT, RT 생성 완료");
+        System.out.println("===============================================");
 
         // AT, RT 쿠키 생성
         ResponseCookie accessTokenCookie = cookieProvider.generateAccessTokenCookie(accessToken);
         ResponseCookie refreshTokenCookie = cookieProvider.generateRefreshTokenCookie(refreshToken);
+        System.out.println("===============================================");
+        System.out.println("AT, RT 쿠키 생성 완료");
+        System.out.println("===============================================");
 
         // AT, RT set-cookie 설정
         response.addHeader(HttpHeaders.SET_COOKIE, accessTokenCookie.toString());
         response.addHeader(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString());
+        System.out.println("===============================================");
+        System.out.println("set-cookie 완료");
+        System.out.println("===============================================");
 
         // Redirect URI 설정
         String targetUrl = determineTargetUrl(request, response, authentication);
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
+        System.out.println("===============================================");
+        System.out.println("redirect uri 설정 완료");
+        System.out.println("===============================================");
 
         // 인증 속성 제거
         clearAuthenticationAttributes(request);
