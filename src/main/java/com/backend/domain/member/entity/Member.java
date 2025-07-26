@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Builder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 @Entity
 @Getter
@@ -30,5 +32,19 @@ public class Member extends BaseEntity {
 
     public void updatePlaceId(Long id) {
         recentPlaceId = id;
+    }
+
+    @Builder
+    public Member(String oauthId, String username, String description, String picUrl) {
+        this.oauthId = oauthId;
+        this.username = username;
+        this.description = description;
+        this.picUrl = picUrl;
+    }
+
+    public static Member createGuestOf(OAuth2User oAuth2User) {
+        return Member.builder()
+                .oauthId(oAuth2User.getName())
+                .build();
     }
 }
