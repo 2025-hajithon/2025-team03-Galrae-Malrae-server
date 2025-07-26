@@ -1,0 +1,33 @@
+name: "🐛 Bug"
+description: "버그 또는 예외 상황"
+title: "🐛 "
+labels: ["🐛 Bug"]
+body:
+  - type: textarea
+    attributes:
+      label: 💡 버그 설명
+      description: 어떤 문제가 발생했는지 설명해 주세요.
+      placeholder: 예) 특정 API에서 500 오류 발생
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🧪 재현 방법
+      description: 버그를 재현하는 방법을 단계별로 설명해 주세요.
+      placeholder: |
+        1. 로그인
+        2. body 없어 API 호출
+        3. 500 오류
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 📸 스크린샷 / 로그
+      description: 참고할 수 있는 이미지나 오류 로그가 있다면 첨부해 주세요.
+
+  - type: textarea
+    attributes:
+      label: 💬 비고
+      description: 기타 특이사항이나 공유할 내용이 있다면 작성해 주세요.

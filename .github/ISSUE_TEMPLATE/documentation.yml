@@ -1,0 +1,32 @@
+name: "📝Docs"
+description: "문서 관련 작업"
+title: "📝 "
+labels: ["📝 Documentation"]
+body:
+  - type: textarea
+    attributes:
+      label: 📝 작업 설명
+      description: 어떤 문서를 작성하거나 수정할 예정인지 설명해 주세요.
+      placeholder: API 문서 작성, ISSUE_TEMPLATE 수정 등
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ✅ 작업할 내용
+      description: 문서 관련 작업을 체크박스로 작성해 주세요.
+      placeholder: |
+        - [ ] 문서 초안 작성
+        - [ ] 리뷰 반영
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🙋🏻 참고 자료
+      description: 참고 자료가 있다면 직접 작성 또는 링크로 첨부해 주세요.
+
+  - type: textarea
+    attributes:
+      label: 💬 비고
+      description: 기타 특이사항이나 공유할 내용이 있다면 작성해 주세요.

@@ -1,0 +1,32 @@
+name: "🧹 Chore"
+description: "기타 작업 (설정, 인프라, CI/CD 등)"
+title: "🧹 "
+labels: ["🧹 Chore"]
+body:
+  - type: textarea
+    attributes:
+      label: 📝 작업 설명
+      description: 어떤 설정/환경 작업인지 설명해 주세요.
+      placeholder: 의존성 업데이트, CI 설정 변경, 빌드 스크립트 수정 등
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ✅ 작업할 내용
+      description: 할 일을 체크박스 형태로 작성해 주세요.
+      placeholder: |
+        - [ ] 패키지 업데이트
+        - [ ] GitHub Actions 수정
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🙋🏻 참고 자료
+      description: 참고 자료가 있다면 직접 작성 또는 링크로 첨부해 주세요.
+
+  - type: textarea
+    attributes:
+      label: 💬 비고
+      description: 기타 특이사항이나 공유할 내용이 있다면 작성해 주세요.

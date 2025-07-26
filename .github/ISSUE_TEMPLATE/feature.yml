@@ -1,0 +1,38 @@
+name: "✨ Feature"
+description: "새로운 기능 추가"
+title: "✨ "
+labels: ["✨ Feature"]
+body:
+  - type: textarea
+    attributes:
+      label: 💡 배경 및 목적
+      description: 이 기능이 왜 필요한지, 어떤 문제를 해결하는지 설명해 주세요.
+      placeholder: 예) 사용자 경험 개선을 위해, 성능 최적화를 위해 등
+
+  - type: textarea
+    attributes:
+      label: 📝 기능 설명
+      description: 새로운 기능에 대한 설명을 작성해 주세요.
+      placeholder: 자세히 적을수록 좋습니다!
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ✅ 작업할 내용
+      description: 할 일을 체크박스 형태로 작성해주세요.
+      placeholder: |
+        - [ ] A 구현...
+        - [ ] B 테스트...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🙋🏻 참고 자료
+      description: 참고 자료가 있다면 직접 작성 또는 링크로 첨부해 주세요.
+
+  - type: textarea
+    attributes:
+      label: 💬 비고
+      description: 기타 특이사항이나 공유할 내용이 있다면 작성해 주세요.
