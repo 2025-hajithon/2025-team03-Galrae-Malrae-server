@@ -25,7 +25,7 @@ public class PlaceController {
         return ResponseEntity.ok(responseDto);
     }
 
-    @Operation(description = "방문 완료 API")
+    @Operation(description = "방문 완료 요청 API, 아직 거리 부족하면 에러 나옴")
     @PostMapping("/visit")
     public ResponseEntity<PlaceVisitResponseDto> visitPlace(@RequestBody PlaceVisitRequestDto requestDto) {
 
