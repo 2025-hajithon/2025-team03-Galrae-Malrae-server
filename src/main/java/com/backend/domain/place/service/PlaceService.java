@@ -4,10 +4,12 @@ import java.net.URI;
 import java.util.Random;
 
 import com.backend.domain.member.entity.Member;
+import com.backend.domain.member.repository.MemberRepository;
 import com.backend.domain.place.dto.request.PlaceRecommendRequestDto;
 import com.backend.domain.place.dto.response.PlaceRecommendResponseDto;
 import com.backend.domain.place.entity.Place;
 import com.backend.domain.place.repository.PlaceRepository;
+import com.backend.global.security.util.MemberUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +28,17 @@ public class PlaceService {
     private String tourApiKey;
 
     private final PlaceRepository placeRepository;
+    private final MemberRepository memberRepository;
+
+    private final MemberUtil memberUtil;
 
     @Transactional
-    public PlaceRecommendResponseDto getPlace(PlaceRecommendRequestDto requestDto, Member member) {
+    public PlaceRecommendResponseDto getPlace(PlaceRecommendRequestDto requestDto) {
+
+        Long memberId = memberUtil.getCurrentMemberId();
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new RuntimeException("해당 회원 없음"));
+
         try {
             JsonNode itemsNode = fetchItemsFromApi(requestDto);
             if (itemsNode == null || !itemsNode.isArray() || itemsNode.isEmpty()) {

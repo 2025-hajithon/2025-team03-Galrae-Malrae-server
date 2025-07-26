@@ -1,6 +1,5 @@
 package com.backend.domain.place.controller;
 
-import com.backend.domain.member.entity.Member;
 import com.backend.domain.place.dto.request.PlaceRecommendRequestDto;
 import com.backend.domain.place.dto.response.PlaceRecommendResponseDto;
 import com.backend.domain.place.service.PlaceService;
@@ -22,8 +21,7 @@ public class PlaceController {
     @GetMapping("/recommendation")
     public ResponseEntity<PlaceRecommendResponseDto> getPlace(@RequestBody PlaceRecommendRequestDto requestDto) {
 
-        Member member = null;
-        PlaceRecommendResponseDto responseDto = placeService.getPlace(requestDto, member);
+        PlaceRecommendResponseDto responseDto = placeService.getPlace(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 }
