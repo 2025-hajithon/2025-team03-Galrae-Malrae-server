@@ -1,4 +1,4 @@
-package com.backend.global.security.properties;
+package com.backend.global.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

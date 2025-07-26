@@ -1,4 +1,4 @@
-package com.backend.global.security.util;
+package com.backend.global.util;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

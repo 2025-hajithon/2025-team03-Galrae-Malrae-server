@@ -17,7 +17,7 @@ import com.backend.domain.route.entity.Route;
 import com.backend.domain.route.repository.RouteRepository;
 import com.backend.domain.routePlace.entity.RoutePlace;
 import com.backend.domain.routePlace.repository.RoutePlaceRepository;
-import com.backend.global.security.util.MemberUtil;
+import com.backend.global.util.MemberUtil;
 import com.backend.global.util.FormatUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

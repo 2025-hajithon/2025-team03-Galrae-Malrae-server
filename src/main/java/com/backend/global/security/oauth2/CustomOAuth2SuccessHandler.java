@@ -1,9 +1,7 @@
 package com.backend.global.security.oauth2;
 
-import com.backend.domain.member.service.MemberService;
 import com.backend.global.security.cookie.CookieProvider;
 import com.backend.global.security.jwt.JwtService;
-import com.backend.global.security.properties.JwtProperties;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
