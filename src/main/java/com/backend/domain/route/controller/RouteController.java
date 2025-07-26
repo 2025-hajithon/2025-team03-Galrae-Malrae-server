@@ -2,6 +2,7 @@ package com.backend.domain.route.controller;
 
 import com.backend.domain.place.dto.response.PlaceVisitResponseDto;
 import com.backend.domain.route.dto.response.RouteAllResponseDto;
+import com.backend.domain.route.dto.response.RouteDetailResponseDto;
 import com.backend.domain.route.dto.response.RoutePreviewResponse;
 import com.backend.domain.route.service.RouteService;
 import io.swagger.v3.oas.annotations.Operation;

@@ -5,6 +5,6 @@ import java.util.List;
 public record RouteAllResponseDto(
 
         String date,
-        List<RoutePreviewResponse> routes
+        List<RouteDetailResponseDto> routes
 ) {
 }
