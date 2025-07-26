@@ -19,8 +19,6 @@ public class Member extends BaseEntity {
     @Column(name = "oauth_id")
     private String oauthId;
 
-    private String email;
-
     private String username;
 
     private String description;
