@@ -16,3 +16,7 @@ swagger:
 
 tour:
   api: ${TOUR_API}
+
+gemini:
+  api-url: ${GEMINI_URL}
+  api-key: ${GEMINI_KEY}
