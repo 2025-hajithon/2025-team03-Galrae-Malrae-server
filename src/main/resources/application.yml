@@ -13,3 +13,6 @@ spring:
 
 swagger:
   server: ${EC2_HOST:}
+
+tour:
+  api: ${TOUR_API}

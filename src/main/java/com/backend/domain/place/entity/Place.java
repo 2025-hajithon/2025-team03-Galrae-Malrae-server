@@ -4,6 +4,7 @@ import com.backend.domain.place.enums.PlaceType;
 import com.backend.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -30,4 +31,13 @@ public class Place extends BaseEntity {
 
     @Column(name = "visit_date")
     private LocalDateTime visitDate;
+
+    @Builder
+    public Place(String name, PlaceType placeType, String imageUrl, String address) {
+
+        this.name = name;
+        this.placeType = placeType;
+        this.imageUrl = imageUrl;
+        this.address = address;
+    }
 }

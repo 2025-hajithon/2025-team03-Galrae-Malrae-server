@@ -25,4 +25,10 @@ public class Member extends BaseEntity {
 
     @Column(name = "pic_url")
     private String picUrl;
+
+    private Long recentPlaceId;
+
+    public void updatePlaceId(Long id) {
+        recentPlaceId = id;
+    }
 }
