@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 public class MemberUtil {
 
     public Long getCurrentMemberId() {
-        return Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName());
+//        return Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName());
+        return 1L;
     }
 }

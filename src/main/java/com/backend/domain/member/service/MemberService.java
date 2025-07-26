@@ -23,6 +23,14 @@ public class MemberService {
     private final MemberUtil memberUtil;
 
     @Transactional
+    public void createMember() {
+        Member member = Member.builder()
+                .username("test")
+                .build();
+        memberRepository.save(member);
+    }
+
+    @Transactional
     public Member fetchOrCreateFromOAuth(OAuth2User oAuth2User) {
         return memberRepository
                 .findByOauthId(oAuth2User.getName())
