@@ -10,3 +10,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+swagger:
+  server: ${EC2_HOST:}
