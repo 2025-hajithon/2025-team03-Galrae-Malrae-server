@@ -4,7 +4,7 @@ import com.backend.domain.member.dto.request.MemberNameRequestDto;
 import com.backend.domain.member.dto.response.MemberInfoResponseDto;
 import com.backend.domain.member.entity.Member;
 import com.backend.domain.member.repository.MemberRepository;
-import com.backend.global.security.util.MemberUtil;
+import com.backend.global.util.MemberUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
