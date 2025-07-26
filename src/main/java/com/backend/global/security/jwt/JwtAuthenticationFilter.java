@@ -28,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     // Jwt 필요없는 공개 API 전용.
     // 따로 UrlConstants 클래스에서 WHITE_URLS 정의하도록 수정 예정.
-    private static final List<String> EXCLUDED_URLS = List.of("/auth");
+    private static final List<String> EXCLUDED_URLS = List.of("/");
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
